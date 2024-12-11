@@ -1,6 +1,7 @@
 <h1 align="center">Private_task</a>
 <h3 align="center">Вопрос 1</h3>
-```plaintext
+
+    ```plaintext
 calculator/
 ├── __init__.py
 ├── basic/
@@ -15,4 +16,4 @@ calculator/
     │   └── def power(a, b)
     └── root.py
         └── def square_root(a)
-```
+        ```
