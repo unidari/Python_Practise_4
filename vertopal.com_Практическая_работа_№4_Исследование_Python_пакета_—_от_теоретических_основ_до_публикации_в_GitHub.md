@@ -25,25 +25,7 @@
 ## **Задания:**
 
 ### **1. Исследование структуры пакета** {#1-исследование-структуры-пакета}
-:::
 
-::: {#682c1a97 .cell .markdown id="682c1a97"}
-**а.** Дополните схему дерева файлов и модулей пакета `calculator`,
-указав, какие модули и функции в них содержатся.
-
-    calculator/
-    ├── __init__.py
-    ├── basic/
-    │   ├── __init__.py
-    │   ├── addition.py
-    │   └── subtraction.py
-    └── advanced/
-        ├── __init__.py
-        ├── exponentiation.py
-        └── root.py
-:::
-
-::: {#e4a-jJ6qVuKz .cell .markdown id="e4a-jJ6qVuKz"}
 ``` plaintext
 calculator/
 ├── __init__.py
@@ -60,30 +42,20 @@ calculator/
     └── root.py
         └── def square_root
 ```
-:::
 
-::: {#rXUGL_f5UtCQ .cell .markdown id="rXUGL_f5UtCQ"}
 **б.** Объясните, какую роль играют файлы `__init__.py` в каждом
 каталоге пакета. Почему без них пакет не будет работать правильно?
-:::
 
-::: {#WJHC-5qUWDVe .cell .markdown id="WJHC-5qUWDVe"}
 `<font color='green'>`{=html}Этот файл является пакетом-проводником, а
 не обычной папкой. Без него Python не сможет правильно импортировать
 модули из этого каталога. Внутри данного файла можно указывать, какие
 модули или функции доступны для импорта. `</font>`{=html}
-:::
 
-::: {#29422cc8 .cell .markdown id="29422cc8"}
 ### **2. Работа с `__init__.py`** {#2-работа-с-__init__py}
-:::
 
-::: {#3a1a8ac0 .cell .markdown id="3a1a8ac0"}
 **а.** Обратите внимание на использование переменной `__all__` в файле
 `calculator/__init__.py`. Объясните, как она влияет на импорт пакета.
-:::
 
-::: {#LNfDwADqWRbv .cell .markdown id="LNfDwADqWRbv"}
 `<font color='green'>`{=html} Данная переменная в файле **init**
 определяет, какие модули будут импортироваться при использовании
 конструкции from calculator import \*. В данном случае, **all** =
@@ -92,55 +64,37 @@ calculator/
 остальные модули или файлы игнорируются. Если даннная переменная не
 указана, то Python импортирует все модули, которые есть в пакете, кроме
 тех, что начинаются с подчеркивания (\_).`</font>`{=html}
-:::
 
-::: {#y23edpV8U6Zu .cell .markdown id="y23edpV8U6Zu"}
 **б.** Удалите или закомментируйте строку
 `__all__ = ["basic", "advanced"]` в файле `calculator/__init__.py`.
 Попробуйте импортировать пакет снова:
-:::
 
-::: {#6c3ce464 .cell .code id="6c3ce464"}
 ``` python
 from calculator import basic
 ```
-:::
 
-::: {#bce87341 .cell .markdown id="bce87341"}
 Что произошло? Объясните причину возникшей проблемы.
-:::
 
-::: {#KIGZTFcmWTWY .cell .markdown id="KIGZTFcmWTWY"}
 `<font color='green'>`{=html} При попытке выполнить импорт возникла
 ошибка. Причина заключается в отсутствии списка доступных для импрта
 модулей. Python не смог найти каталог basic в пакете calculator. И при
 использовании from calculator import basic не имеет доступа к данному
 модулю.`</font>`{=html}
-:::
 
-::: {#hASF8Jk9WWWf .cell .markdown id="hASF8Jk9WWWf"}
 **в.** Верните строку `__all__` обратно. Попробуйте выполнить команду:
-:::
 
-::: {#c0812720 .cell .code id="c0812720"}
 ``` python
 from calculator import *
 ```
-:::
 
-::: {#a2fb1056 .cell .markdown id="a2fb1056"}
 Какие модули будут импортированы? Как можно управлять импортируемыми
 модулями с помощью `__all__`?
-:::
 
-::: {#oKXMNpjnWe1v .cell .markdown id="oKXMNpjnWe1v"}
 `<font color='green'>`{=html} После того возвращения переменной **all**
 будут импортированы только модули basic и advanced. При использовании
 from calculator import \*, Python будет импортировать только те модули,
 которые перечислены в **all**.`</font>`{=html}
-:::
 
-::: {#0ff9be0e .cell .markdown id="0ff9be0e"}
 ### **3. Абсолютный и относительный импорт** {#3-абсолютный-и-относительный-импорт}
 :::
 
