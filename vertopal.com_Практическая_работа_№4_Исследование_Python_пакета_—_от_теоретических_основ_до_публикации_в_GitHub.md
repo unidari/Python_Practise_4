@@ -1,12 +1,8 @@
 
 # **Практическая работа №4. Исследование Python-пакета --- от теоретических основ до публикации в GitHub** {#практическая-работа-4-исследование-python-пакета--от-теоретических-основ-до-публикации-в-github}
-:::
 
-::: {#4d968065 .cell .markdown id="4d968065"}
 ## **Цель работы**
-:::
 
-::: {#3f23c716 .cell .markdown id="3f23c716"}
 **Цель** этой практической работы заключается в изучении принципов
 функционирования пакетов в Python и публикации проекта в приватном
 репозитории на GitHub.
@@ -25,135 +21,9 @@
 Эти задачи помогут вам освоить все этапы работы с Python-пакетами, от их
 создания и исследования до управления версиями и совместной работы в
 закрытой среде.
-:::
 
-::: {#ffb03f5a .cell .markdown id="ffb03f5a"}
-## **Описание работы**
-:::
-
-::: {#18243b16 .cell .markdown id="18243b16"}
-Вы будете работать с уже созданным пакетом `calculator`, который имеет
-следующую структуру:
-
-    calculator/
-    ├── __init__.py
-    ├── basic/
-    │   ├── __init__.py
-    │   ├── addition.py
-    │   └── subtraction.py
-    └── advanced/
-        ├── __init__.py
-        ├── exponentiation.py
-        └── root.py
-:::
-
-::: {#63967923 .cell .markdown id="\"63967923\""}
-**Содержимое файлов:**
-
-**`calculator/__init__.py`**
-:::
-
-::: {#dc7ad5d4 .cell .code id="dc7ad5d4"}
-``` python
-# __init__.py in calculator
-__all__ = ["basic", "advanced"]
-```
-:::
-
-::: {#2ca97ca9 .cell .markdown id="2ca97ca9"}
-**`calculator/basic/__init__.py`**
-:::
-
-::: {#38c109a0 .cell .code id="38c109a0"}
-``` python
-# __init__.py in basic
-from .addition import add
-from .subtraction import subtract
-```
-:::
-
-::: {#a3ffd41a .cell .markdown id="a3ffd41a"}
-**`calculator/basic/addition.py`**
-:::
-
-::: {#7ed2e868 .cell .code id="7ed2e868"}
-``` python
-# addition.py
-def add(a, b):
-    return a + b
-```
-:::
-
-::: {#81545127 .cell .markdown id="\"81545127\""}
-**`calculator/basic/subtraction.py`**
-:::
-
-::: {#67003bfc .cell .code id="67003bfc"}
-``` python
-# subtraction.py
-def subtract(a, b):
-    return a - b
-```
-:::
-
-::: {#a7150f98 .cell .markdown id="a7150f98"}
-**`calculator/advanced/__init__.py`**
-:::
-
-::: {#7b82ebf9 .cell .code id="7b82ebf9"}
-``` python
-# __init__.py in advanced
-from .exponentiation import power
-from .root import square_root
-```
-:::
-
-::: {#2710fe8b .cell .markdown id="2710fe8b"}
-**`calculator/advanced/exponentiation.py`**
-:::
-
-::: {#9ba07d5b .cell .code id="9ba07d5b"}
-``` python
-# exponentiation.py
-def power(a, b):
-    return a ** b
-```
-:::
-
-::: {#80d53e6d .cell .markdown id="80d53e6d"}
-**`calculator/advanced/root.py`**
-:::
-
-::: {#ea8f8d28 .cell .code id="ea8f8d28"}
-``` python
-# root.py
-def square_root(a):
-    return a ** 0.5
-```
-:::
-
-::: {#d3d29b5c .cell .markdown id="d3d29b5c"}
-**Пример использования пакета:**
-:::
-
-::: {#fb6c3f15 .cell .code id="fb6c3f15"}
-``` python
-# main.py
-from calculator.basic import add, subtract
-from calculator.advanced import power, square_root
-
-print(add(2, 3))             # Вывод: 5
-print(subtract(5, 2))        # Вывод: 3
-print(power(2, 3))           # Вывод: 8
-print(square_root(16))       # Вывод: 4.0
-```
-:::
-
-::: {#bc7b0fc2 .cell .markdown id="bc7b0fc2"}
 ## **Задания:**
-:::
 
-::: {#0d5236e4 .cell .markdown id="0d5236e4"}
 ### **1. Исследование структуры пакета** {#1-исследование-структуры-пакета}
 :::
 
