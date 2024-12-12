@@ -3,7 +3,7 @@
 ## Установка
 
 ```bash
-pip install calculator-pkg-yourusername
+pip install calculator-pkg-unidari
 ```
 
 ## Использование
